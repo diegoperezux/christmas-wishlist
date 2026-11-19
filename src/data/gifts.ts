@@ -51,9 +51,9 @@ export const gifts: Gift[] = [
   },
   {
     id: 'tarjetero-vulkit',
-    title: 'Tarjetero billetera VULKIT',
+    title: 'Tarjetero billetera VULKIT (Verde)',
     description:
-      '**Tarjetero billetera VULKIT** con protección RFID, mecanismo pop-up para tarjetas, compartimento para efectivo/monedas y cierre magnético.',
+      '**Tarjetero billetera VULKIT** en color verde con protección RFID, mecanismo pop-up para tarjetas, compartimento para efectivo/monedas y cierre magnético.',
     image: '/images/tarjetero-vulkit.jpg',
     storeUrl: 'https://www.amazon.com.mx/dp/B0F7QNGVPG',
     category: 'Accesorios',
