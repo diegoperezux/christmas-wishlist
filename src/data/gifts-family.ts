@@ -26,4 +26,13 @@ export const gifts: Gift[] = [
       'https://www.walmart.com.mx/ip/freidora-de-aire-ninja-canasta-4-litros-color-negra/00062235655457',
     category: 'Cocina',
   },
+  {
+    id: 'torre-gatos-feandrea',
+    title: 'Torre para gatos Feandrea (gris)',
+    description:
+      '**Torre y rascador para gatos Feandrea** en gris oscuro, con cueva acolchada, plataforma, tronco de sisal y pompón colgante.',
+    image: '/images/torre-gatos-feandrea.jpg',
+    storeUrl: 'https://www.amazon.com.mx/dp/B07PX2N1BJ',
+    category: 'Mascotas',
+  },
 ]
