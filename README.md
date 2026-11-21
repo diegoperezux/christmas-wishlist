@@ -1,6 +1,7 @@
 # 🎄 Mi lista de regalos
 
-Sitio web estático para compartir tu lista de regalos de Navidad con familia y amigos.
+Sitio web estático para compartir las listas de regalos de Navidad con familia y amigos.
+Tiene tres tabs: **Diego**, **Emily** y **Fam. Pérez Retamoza** (regalos para ambos).
 Hecho con **React + Vite + TypeScript + Tailwind CSS**.
 
 ## Requisitos
@@ -19,12 +20,18 @@ Abre la URL que aparece en la terminal (normalmente `http://localhost:5173`).
 
 ## Cómo editar tu lista
 
-Todo el contenido vive en dos archivos:
+Todo el contenido vive en la carpeta `src/data`:
 
 | Archivo | Qué contiene |
 | --- | --- |
-| `src/data/wishlist.ts` | Tu nombre, el título, el subtítulo y el mensaje de bienvenida. |
-| `src/data/gifts.ts` | La lista de regalos. |
+| `src/data/lists.ts` | Las tabs del sitio (nombre, título, subtítulo y mensaje) y qué regalos usa cada una. |
+| `src/data/gifts.ts` | Los regalos de la tab **Diego**. |
+| `src/data/gifts-emily.ts` | Los regalos de la tab **Emily**. |
+| `src/data/gifts-family.ts` | Los regalos de la tab **Fam. Pérez Retamoza** (para ambos). |
+
+Para agregar una tab nueva, agrega un objeto en `lists.ts` y crea su archivo de
+regalos (o reutiliza uno existente). Para cambiar el orden de las tabs, reordena
+el arreglo `lists`.
 
 Para agregar un regalo, copia un bloque y ajusta los campos:
 
@@ -96,5 +103,5 @@ de regalo por defecto.
   Cámbialas en los componentes de `src/components/`.
 - **Tipografía**: la fuente de los títulos se define en `src/index.css`
   (variable `--font-display`).
-- **Estructura**: `Header`, `FilterBar`, `GiftGrid`, `GiftCard`, `ShareButton` y `Footer`.
+- **Estructura**: `TabBar`, `Header`, `FilterBar`, `GiftGrid`, `GiftCard` y `Footer`.
 # christmas-wishlist

@@ -1,12 +1,38 @@
-import type { WishlistConfig } from '../types'
+import type { GiftList } from '../types'
+import TabBar from './TabBar'
 
 interface HeaderProps {
-  wishlist: WishlistConfig
+  list: GiftList
+  lists: GiftList[]
+  activeListId: string
+  onListChange: (id: string) => void
 }
 
-export default function Header({ wishlist }: HeaderProps) {
+const themes: Record<GiftList['theme'], { gradient: string; subtitle: string; message: string }> = {
+  emerald: {
+    gradient: 'from-emerald-950 via-emerald-800 to-emerald-700',
+    subtitle: 'text-emerald-200',
+    message: 'text-emerald-50/90',
+  },
+  rose: {
+    gradient: 'from-rose-950 via-rose-900 to-rose-700',
+    subtitle: 'text-rose-200',
+    message: 'text-rose-50/90',
+  },
+  blue: {
+    gradient: 'from-blue-950 via-blue-900 to-blue-700',
+    subtitle: 'text-blue-200',
+    message: 'text-blue-50/90',
+  },
+}
+
+export default function Header({ list, lists, activeListId, onListChange }: HeaderProps) {
+  const theme = themes[list.theme]
+
   return (
-    <header className="relative overflow-hidden bg-linear-to-br from-emerald-950 via-emerald-800 to-emerald-700 text-white">
+    <header
+      className={`relative overflow-hidden bg-linear-to-br text-white transition-colors duration-500 ${theme.gradient}`}
+    >
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.15]"
         aria-hidden="true"
@@ -21,15 +47,21 @@ export default function Header({ wishlist }: HeaderProps) {
         <span className="text-4xl" aria-hidden="true">
           🎄
         </span>
-        <p className="mt-4 text-xs font-medium uppercase tracking-[0.3em] text-emerald-200 sm:text-sm">
-          {wishlist.subtitle}
+        <p
+          className={`mt-4 text-xs font-medium uppercase tracking-[0.3em] sm:text-sm ${theme.subtitle}`}
+        >
+          {list.subtitle}
         </p>
         <h1 className="mt-3 font-serif text-4xl font-semibold tracking-tight sm:text-6xl">
-          {wishlist.title}
+          {list.title}
         </h1>
-        <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-emerald-50/90 sm:text-lg">
-          {wishlist.message}
+        <p
+          className={`mx-auto mt-5 max-w-2xl text-base leading-relaxed sm:text-lg ${theme.message}`}
+        >
+          {list.message}
         </p>
+
+        <TabBar lists={lists} activeListId={activeListId} onChange={onListChange} />
       </div>
     </header>
   )

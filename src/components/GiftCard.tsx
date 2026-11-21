@@ -1,4 +1,5 @@
 import type { Gift, Priority } from '../types'
+import { asset } from '../lib/asset'
 import GiftGallery from './GiftGallery'
 
 interface GiftCardProps {
@@ -40,7 +41,7 @@ function renderBold(text: string) {
 
 export default function GiftCard({ gift }: GiftCardProps) {
   const price = formatPrice(gift)
-  const photos = gift.images ?? (gift.image ? [gift.image] : [])
+  const photos = (gift.images ?? (gift.image ? [gift.image] : [])).map(asset)
 
   return (
     <article className="flex flex-col overflow-hidden rounded-2xl bg-white ring-1 ring-stone-200/80 transition duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-stone-200/60">

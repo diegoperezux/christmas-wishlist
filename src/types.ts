@@ -23,8 +23,10 @@ export interface Gift {
   category?: string
 }
 
-export interface WishlistConfig {
-  /** Tu nombre, aparece en el encabezado. */
+export interface GiftList {
+  /** Identificador de la tab, ej: "diego". */
+  id: string
+  /** Nombre de quien(es) es la lista, aparece en el encabezado y el pie. */
   ownerName: string
   /** Título principal de la página. */
   title: string
@@ -32,4 +34,8 @@ export interface WishlistConfig {
   subtitle: string
   /** Mensaje de bienvenida para quien visita la lista. */
   message: string
+  /** Color del encabezado de esta lista. */
+  theme: 'emerald' | 'rose' | 'blue'
+  /** Regalos de esta lista. */
+  gifts: Gift[]
 }
